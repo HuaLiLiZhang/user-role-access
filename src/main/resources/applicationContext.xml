@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+        "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+    <bean id="UserService" class="com.example.rbac.IOCInplement.UserService">
+        <property name="appender">
+            <ref bean="Dbappender"/>
+        </property>
+    </bean>
+    <bean id="PowerService" class="com.example.rbac.IOCInplement.PowerService">
+        <property name="appender">
+            <ref bean="appender"/>
+        </property>
+    </bean>
+
+    <bean id="Dbappender" class="com.example.rbac.IOCInplement.DBAppender">
+    </bean>
+    <bean id="appender" class="com.example.rbac.IOCInplement.ConsoleAppender">
+    </bean>
+    <!--这里的class记得改，不然后面反射找不到 -->
+    <!--<bean id = "userDao" class ="com.example.rbac.DefineAnnotation.UserDaoImpl" />-->
+    <bean id = "user1Dao" class ="com.example.rbac.DefineAnnotation.User1DaoImpl" />
+    <bean id = "user2Dao" class ="com.example.rbac.DefineAnnotation.User2DaoImpl" />
+    <bean id = "user3Dao" class ="com.example.rbac.DefineAnnotation.User3DaoImpl" />
+    <bean id = "userService" class = "com.example.rbac.DefineAnnotation.UserServiceImpl" />
+
+</beans>
